@@ -21,6 +21,15 @@
       content: url("../../public/image/plus.svg");
     }
   }
+
+  .active {
+    background-color: $hoverBackgroundColor;
+    color: #fff;
+
+    &::after {
+      content: url("../../public/image/check.svg");
+    }
+  }
 }
 
 @mixin titleStyle {
@@ -35,7 +44,6 @@
 .container {
   padding: 35px 45px 20px 30px;
   justify-content: space-between;
-  border-right: 1px solid #717171;
   font-size: 13px;
 
   .info {
@@ -77,7 +85,7 @@
         }
       }
 
-      .generis {
+      .genres {
         @include titleStyle;
         @include buttonSelect;
       }

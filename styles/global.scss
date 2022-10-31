@@ -1,5 +1,17 @@
 @import "_variables";
 
+// Скролл
+
+::-webkit-scrollbar {
+  width: 15px;
+  background-color: #2e2e2e;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #464646;
+  border-radius: 10px;
+}
+
 body {
   font-family: "Nunito", sans-serif;
   background-color: $backgroundColor;
