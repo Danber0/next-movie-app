@@ -84,10 +84,10 @@
           background-color: #222222;
           position: relative;
 
-          img {
-            position: absolute;
-            bottom: 9px;
-            left: 9px;
+          span {
+            position: absolute !important;
+            bottom: 10px;
+            left: 10px;
           }
         }
       }
@@ -140,7 +140,7 @@
             color: #d2d2d2;
           }
 
-          .action {
+          .actionCard {
             margin-top: 10px;
             display: flex;
             align-items: center;
@@ -166,10 +166,10 @@
               background-color: #222222;
               position: relative;
 
-              img {
-                position: absolute;
-                bottom: 9px;
-                left: 9px;
+              svg {
+                position: absolute !important;
+                bottom: 8px;
+                left: 10px;
               }
             }
           }

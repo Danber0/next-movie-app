@@ -2,11 +2,10 @@ import styles from "../styles/Home.module.scss";
 import MainContainer from "../components/MainContainer";
 import Image from "next/image";
 
-import poster from "../public/image/poster.svg";
-import plus from "../public/image/plus.svg";
 import Card from "../components/Card";
 
-export default function Home() {
+export default function Home({ posts }) {
+  console.log(posts);
   return (
     <MainContainer>
       <div className={styles.container}>
@@ -20,14 +19,25 @@ export default function Home() {
           </div>
         </div>
         <div className={styles.slider}>
-          <Image src={poster} alt="poster" />
+          <Image
+            src="/image/poster.svg"
+            alt="poster"
+            width={865}
+            height={460}
+          />
           <div className={styles.info}>
             <h1>Джуманджи</h1>
             <h4>Экшен, приключение, комедия</h4>
             <div className={styles.action}>
               <button>Смотреть</button>
               <div>
-                <Image src={plus} alt="Добавить" width={25} height={25} />
+                <Image
+                  src="/image/plus.svg"
+                  alt="plus"
+                  layout="fixed"
+                  width={25}
+                  height={25}
+                />
               </div>
             </div>
           </div>
@@ -49,4 +59,18 @@ export default function Home() {
       </div>
     </MainContainer>
   );
+}
+
+export async function getStaticProps() {
+  const token = "3C45MQP-VVSME6H-JBTXTF7-J2BFT08";
+  const res = await fetch(
+    `https://api.kinopoisk.dev/movie?token=${token}&field=rating.kp&search=7-10&field=year&search=2017-2020&field=typeNumber&search=2&sortField=year&sortType=1&sortField=votes.imdb&sortType=-1&limit=20`
+  );
+  const posts = await res.json();
+
+  return {
+    props: {
+      posts,
+    },
+  };
 }
